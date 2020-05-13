@@ -6,32 +6,24 @@
     <title>Document</title>
 </head>
 <script>
-    let nom = 'BL4NCA';
-    let tipus;
+    const myMap = new Map;
+    let nom = 'ALEJANDRO';
     let current;
-    let toInt;
+    let currentVal;
     console.log('Partim del nom: ' + nom);
     nom = nom.split("");
     for( let i = 0; i < nom.length; i++) {
         current = nom[i];
-        toInt = parseInt(current);
-        if(current == toInt) {
-            console.log(`Els noms de les persones no contenen el número: ${current}`);
+        if(myMap.has(current)) {
+            currentVal = myMap.get(current);
+            currentVal = currentVal + 1;
+            myMap.set(current,currentVal);
         } else {
-            
-            if (current == 'A' || current == 'E' || current == 'I' || current == 'O' || current == 'U') {
-                tipus = 'vocal';
-            } else {
-                tipus = 'consonant';
-            }
-            console.log(`He trobat la ${tipus}: ${current}`);
+            myMap.set(current, 1);
         }
         
-       
-
-    
-        
     }
+    console.log(myMap);
 </script>
 <body>
     
